@@ -9,11 +9,16 @@ export default new Vuex.Store({
       {
         id: "bRefinery",
         name: "Basic Refinery",
-        description: "Lorem ipsum",
+        description: "The Basic Refinery is a specialized version of the Icon Block Empty Refinery block. It efficiently smelts iron, nickel and cobalt ores.",
         icon: "placeholder.svg",
         dimension: [1, 2, 1],
         power: ["1 kW", "330 kW"],
-        components: []
+        components: [
+          { name: "Steel Plate", amount: 100 },
+          { name: "Construction Component", amount: 20 },
+          { name: "Motor", amount: 10 },
+          { name: "Computer", amount: 10 }
+        ]
       },
       {
         id: "bAssembler",

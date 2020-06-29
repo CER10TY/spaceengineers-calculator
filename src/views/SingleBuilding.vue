@@ -9,7 +9,7 @@
         </b-row>
         <b-row>
             <b-col cols="4">
-                <b-table-simple>
+                <b-table-simple striped bordered>
                     <b-tbody>
                         <b-tr>
                             <b-th>Idle Power Consumption</b-th>
@@ -26,8 +26,23 @@
                     </b-tbody>
                 </b-table-simple>
             </b-col>
-            <b-col>
+            <b-col cols="4"></b-col>
+            <b-col cols="4">
                 <!-- Ingredients needed -->
+                <b-table-simple striped bordered>
+                    <b-thead>
+                        <b-tr>
+                            <b-th>Ingredient needed to craft</b-th>
+                            <b-th>Amount</b-th>
+                        </b-tr>
+                    </b-thead>
+                    <b-tbody>
+                        <b-tr v-for="ingredient in building.components" :key="ingredient.name">
+                            <b-td>{{ ingredient.name }}</b-td>
+                            <b-td>{{ ingredient.amount }}</b-td>
+                        </b-tr>
+                    </b-tbody>
+                </b-table-simple>
             </b-col>
         </b-row>
     </b-container>
