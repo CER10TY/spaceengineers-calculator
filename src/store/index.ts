@@ -9,10 +9,11 @@ export default new Vuex.Store({
       {
         id: "bRefinery",
         name: "Basic Refinery",
-        description: "The Basic Refinery is a specialized version of the Icon Block Empty Refinery block. It efficiently smelts iron, nickel and cobalt ores.",
+        description: "The Basic Refinery is a specialized version of the Icon Block Empty Refinery block. \
+        It efficiently smelts iron, nickel and cobalt ores.",
         icon: "placeholder.svg",
         dimension: [1, 2, 1],
-        power: ["1 kW", "330 kW"],
+        power: [1, 330],
         components: [
           { name: "Steel Plate", amount: 100 },
           { name: "Construction Component", amount: 20 },
@@ -23,11 +24,18 @@ export default new Vuex.Store({
       {
         id: "bAssembler",
         name: "Basic Assembler",
-        description: "Lorem ipsum",
+        description: "The Basic Assembler is ideal for usage with a Survival Kit. \
+        It is a smaller version of the Assembler with no conveyor connections.",
         icon: "placeholder.svg",
-        dimension: [],
-        power: "0W",
-        components: []
+        dimension: [1, 1, 1],
+        power: [1, 280],
+        components: [
+          { name: "Steel Plate", amount: 80 },
+          { name: "Construction Component", amount: 40 },
+          { name: "Motor", amount: 10 },
+          { name: "Display", amount: 4 },
+          { name: "Computer", amount: 80 }
+        ]
       }
     ]
   },

@@ -9,18 +9,27 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "home",
+    component: Home,
+    meta: {
+      breadcrumb: "Home"
+    }
   },
   {
     path: "/buildings",
-    name: "Buildings",
-    component: Buildings
+    name: "buildings",
+    component: Buildings,
+    meta: {
+      breadcrumb: "Buildings"
+    }
   },
   {
-    path: "/building/:id",
-    name: "SingleBuilding",
-    component: SingleBuilding
+    path: "/buildings/:id",
+    name: "singleBuilding",
+    component: SingleBuilding,
+    meta: {
+      breadcrumb: (building: { name: string; }) => building.name
+    }
   }
 ];
 

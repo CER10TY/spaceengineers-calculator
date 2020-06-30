@@ -13,11 +13,11 @@
                     <b-tbody>
                         <b-tr>
                             <b-th>Idle Power Consumption</b-th>
-                            <b-td>{{ building.power[0] }}</b-td>
+                            <b-td>{{ building.power[0] }} kW</b-td>
                         </b-tr>
                         <b-tr>
                             <b-th>Active Power Consumption</b-th>
-                            <b-td>{{ building.power[1] }}</b-td>
+                            <b-td>{{ building.power[1] }} kW</b-td>
                         </b-tr>
                         <b-tr>
                             <b-th>Dimensions</b-th>
