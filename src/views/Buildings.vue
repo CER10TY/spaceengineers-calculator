@@ -1,34 +1,48 @@
 <template>
-  <div>
-      <!--<b-list-group horizontal>
-          <b-list-group-item v-for="building in this.$store.state.buildings" :key="building.id" class="w-25 link-highlight flex-fill">
-            <b-link class="text-body text-decoration-none no-outline" :to="`/buildings/${building.id}`">
-                <img :src="require(`@/assets/${building.icon}`)" class="mb-3" width="75px" height="75px">
-
-                <h4>{{ building.name }}</h4>
-                <p>{{ building.description }}</p>
-            </b-link>
-          </b-list-group-item>
-      </b-list-group>-->
-      <ul class="list-inline">
-          <li class="list-inline-item w-25 link-highlight align-top m-2" v-for="building in this.$store.state.buildings" :key="building.id">
-              <b-link class="text-body text-decoration-none no-outline" :to="`/buildings/${building.id}`">
-                <img :src="require(`@/assets/${building.icon}`)" class="mb-3" width="75px" height="75px">
-
-                <h4>{{ building.name }}</h4>
-                <p>{{ building.description }}</p>
-              </b-link>
-          </li>
-      </ul>
-  </div>
+  <b-container fluid style="margin-top: 0 !important">
+    <b-row class="nav-helper py-3">
+      <b-col sm="auto">
+        Buildings / Ore Processing
+      </b-col>
+    </b-row>
+    <BuildingList :buildings=oreProcessors></BuildingList>
+    <b-row class="nav-helper py-3">
+      <b-col sm="auto">
+        Buildings / Assembly
+      </b-col>
+    </b-row>
+    <BuildingList :buildings=assemblers></BuildingList>
+    <b-row class="nav-helper py-3">
+      <b-col sm="auto">
+        Buildings / Energy
+      </b-col>
+    </b-row>
+    <BuildingList :buildings=energy></BuildingList>
+  </b-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { Getter } from "vuex-class";
+import BuildingList from "@/components/BuildingList.vue";
 
-@Component
+@Component({
+  components: {
+    BuildingList,
+  }
+})
 export default class Buildings extends Vue {
-    
+  @Getter('getBuildingsByType') getBuildingsByType!: (type: string) => Array<object>;
+
+  oreProcessors: Array<object> = [{}];
+  assemblers: Array<object> = [{}];
+  energy: Array<object> = [{}];
+
+  mounted(): void {
+    this.oreProcessors = this.getBuildingsByType("ore-processing");
+    this.assemblers = this.getBuildingsByType("assembly");
+    this.energy = this.getBuildingsByType("energy");
+  }
 }
 </script>
 
@@ -37,5 +51,9 @@ export default class Buildings extends Vue {
 .link-highlight:hover {
     background: #87c3ff;
     cursor: pointer;
+}
+
+.nav-helper {
+  background: #b2d5e8;
 }
 </style>

@@ -27,6 +27,10 @@
                             <b-th>Capacity</b-th>
                             <b-td>{{ building.capacity[0] }} MWh</b-td>
                         </b-tr>
+                        <b-tr v-if="building.powerOut">
+                            <b-th>Power (Output)</b-th>
+                            <b-td>{{ building.powerOut[0] }} {{building.powerOut[1] }}</b-td>
+                        </b-tr>
                     </b-tbody>
                 </b-table-simple>
             </b-col>
@@ -36,8 +40,9 @@
                 <b-table-simple striped bordered>
                     <b-thead>
                         <b-tr>
-                            <b-th>Ingredients needed to craft</b-th>
-                            <b-th>Amount</b-th>
+                            <b-th>Large Ship / Station</b-th>
+                            <b-th></b-th>
+                            <b-th>Small Ship</b-th>
                         </b-tr>
                     </b-thead>
                     <b-tbody>
