@@ -12,11 +12,12 @@ export default class Buildings extends VuexModule {
             icon: "placeholder.svg",
             dimension: [1, 2, 1],
             power: [1, 330],
+            grids: [true, false], // Large, small grid available
             components: [
-            { name: "Steel Plate", amount: 100 },
-            { name: "Construction Component", amount: 20 },
-            { name: "Motor", amount: 10 },
-            { name: "Computer", amount: 10 }
+            { name: "Steel Plate", amountLg: 100 },
+            { name: "Construction Component", amountLg: 20 },
+            { name: "Motor", amountLg: 10 },
+            { name: "Computer", amountLg: 10 }
             ]
         },
         {
@@ -28,12 +29,13 @@ export default class Buildings extends VuexModule {
             icon: "placeholder.svg",
             dimension: [1, 1, 1],
             power: [1, 280],
+            grids: [true, false], // Large, small grid available
             components: [
-            { name: "Steel Plate", amount: 80 },
-            { name: "Construction Component", amount: 40 },
-            { name: "Motor", amount: 10 },
-            { name: "Display", amount: 4 },
-            { name: "Computer", amount: 80 }
+            { name: "Steel Plate", amountLg: 80 },
+            { name: "Construction Component", amountLg: 40 },
+            { name: "Motor", amountLg: 10 },
+            { name: "Display", amountLg: 4 },
+            { name: "Computer", amountLg: 80 }
             ]
         },
         {
@@ -45,13 +47,14 @@ export default class Buildings extends VuexModule {
             icon: "placeholder.svg",
             dimension: [2, 2, 4],
             power: [1, 560],
+            grids: [true, false], // Large, small grid available
             components: [
-            { name: "Steel Plate", amount: 1200 },
-            { name: "Construction Component", amount: 40 },
-            { name: "Large Steel Tube", amount: 20 },
-            { name: "Motor", amount: 16 },
-            { name: "Metal Grid", amount: 20 },
-            { name: "Computer", amount: 20 }
+            { name: "Steel Plate", amountLg: 1200 },
+            { name: "Construction Component", amountLg: 40 },
+            { name: "Large Steel Tube", amountLg: 20 },
+            { name: "Motor", amountLg: 16 },
+            { name: "Metal Grid", amountLg: 20 },
+            { name: "Computer", amountLg: 20 }
             ]
         },
         {
@@ -63,13 +66,14 @@ export default class Buildings extends VuexModule {
             icon: "placeholder.svg",
             dimension: [1, 1, 2],
             power: [1, 560],
+            grids: [true, false], // Large, small grid available
             components: [
-            { name: "Steel Plate", amount: 140 },
-            { name: "Construction Component", amount: 80 },
-            { name: "Motor", amount: 20 },
-            { name: "Display", amount: 10 },
-            { name: "Metal Grid", amount: 10 },
-            { name: "Computer", amount: 160 }
+            { name: "Steel Plate", amountLg: 140 },
+            { name: "Construction Component", amountLg: 80 },
+            { name: "Motor", amountLg: 20 },
+            { name: "Display", amountLg: 10 },
+            { name: "Metal Grid", amountLg: 10 },
+            { name: "Computer", amountLg: 160 }
             ]
         },
         {
@@ -81,11 +85,12 @@ export default class Buildings extends VuexModule {
             dimension: [1, 1, 1],
             capacity: [3],
             powerOut: [12, "MWh"],
+            grids: [true, true], // Large, small grid available
             components: [
-            { name: "Steel Plate", amount: 80 },
-            { name: "Construction Component", amount: 30 },
-            { name: "Power Cell", amount: 80 },
-            { name: "Computer", amount: 25 }
+            { name: "Steel Plate", amountLg: 80, amountSm: 25 },
+            { name: "Construction Component", amountLg: 30, amountSm: 5 },
+            { name: "Power Cell", amountLg: 80, amountSm: 20 },
+            { name: "Computer", amountLg: 25, amountSm: 2 }
             ]
         },
         {
@@ -96,12 +101,31 @@ export default class Buildings extends VuexModule {
             icon: "placeholder.svg",
             dimension: [1, 1, 1],
             powerOut: [120, "kWh"],
+            grids: [true, true], // Large, small grid available
             components: [
-            { name: "Steel Plate", amount: 4 },
-            { name: "Construction Component", amount: 14 },
-            { name: "Girder", amount: 12 },
-            { name: "Computer", amount: 4 },
-            { name: "Solar Cell", amount: 32 }
+                { name: "Steel Plate", amountLg: 4, amountSm: 2 },
+                { name: "Construction Component", amountLg: 14, amountSm: 2 },
+                { name: "Girder", amountLg: 12, amountSm: 4 },
+                { name: "Computer", amountLg: 4, amountSm: 1 },
+                { name: "Solar Cell", amountLg: 32, amountSm: 8 },
+                { name: "Bulletproof Glass", amountLg: 4, amountSm: 1 }
+            ]
+        },
+        {
+            id: "windturbine",
+            name: "Wind Turbine",
+            type: "energy",
+            description: "It's a wind turbine. No explanation needed.",
+            icon: "placeholder.svg",
+            dimension: [3, 3, 3],
+            powerOut: [370, "kWh"],
+            grids: [true, false], // Large, small grid available
+            components: [
+                { name: "Interior Plate", amountLg: 40 },
+                { name: "Motor", amountLg: 8 },
+                { name: "Construction Component", amountLg: 20 },
+                { name: "Girder", amountLg: 24 },
+                { name: "Computer", amountLg: 2 }
             ]
         },
     ];

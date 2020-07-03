@@ -10,6 +10,12 @@
         <b-row>
             <b-col cols="4">
                 <b-table-simple striped bordered>
+                    <b-thead>
+                        <b-tr>
+                            <b-th>Attribute</b-th>
+                            <b-th>Value</b-th>
+                        </b-tr>
+                    </b-thead>
                     <b-tbody>
                         <b-tr v-if="building.power">
                             <b-th>Idle Power Consumption</b-th>
@@ -34,21 +40,29 @@
                     </b-tbody>
                 </b-table-simple>
             </b-col>
-            <b-col cols="4"></b-col>
-            <b-col cols="4">
-                <!-- Ingredients needed -->
+            <b-col :class='{ "col-4": !building.grids[1], "col-3": building.grids[1] }'></b-col>
+            <b-col :class='{ "col-4": !building.grids[1], "col-5": building.grids[1] }'>
+                <!-- Ingredients needed /Large Ship -->
                 <b-table-simple striped bordered>
                     <b-thead>
                         <b-tr>
-                            <b-th>Large Ship / Station</b-th>
-                            <b-th></b-th>
-                            <b-th>Small Ship</b-th>
+                            <b-th colspan="2" v-if="building.grids[0]">Large Ship / Station</b-th>
+                            <b-th colspan="2" v-if="building.grids[1]">Small Ship</b-th>
+                        </b-tr>
+                        <b-tr>
+                            <!-- Find a way to shorten this! -->
+                            <b-th v-if="building.grids[0]">Ingredient</b-th>
+                            <b-th v-if="building.grids[0]">Amount</b-th>
+                            <b-th v-if="building.grids[1]">Ingredient</b-th>
+                            <b-th v-if="building.grids[1]">Amount</b-th>
                         </b-tr>
                     </b-thead>
                     <b-tbody>
                         <b-tr v-for="ingredient in building.components" :key="ingredient.name">
-                            <b-td>{{ ingredient.name }}</b-td>
-                            <b-td>{{ ingredient.amount }}</b-td>
+                            <b-td v-if="building.grids[0]">{{ ingredient.name }}</b-td>
+                            <b-td v-if="building.grids[0]">{{ ingredient.amountLg }}</b-td>
+                            <b-td v-if="building.grids[1]">{{ ingredient.name }}</b-td>
+                            <b-td v-if="building.grids[1]">{{ ingredient.amountSm }}</b-td>
                         </b-tr>
                     </b-tbody>
                 </b-table-simple>
