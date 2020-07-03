@@ -2,7 +2,8 @@
   <div>
     <b-navbar toggleable="lg" type="dark" class="space-eg-nav">
       <b-navbar-brand to="/">
-        <img src="@/assets/s_e_logo.png" width="100px" height="32px"/> Calculator
+        <img src="@/assets/s_e_logo.png" width="100px" height="32px" />
+        Calculator
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

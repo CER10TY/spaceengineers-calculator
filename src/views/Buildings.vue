@@ -5,19 +5,19 @@
         Buildings / Ore Processing
       </b-col>
     </b-row>
-    <BuildingList :buildings=oreProcessors></BuildingList>
+    <BuildingList :buildings="oreProcessors"></BuildingList>
     <b-row class="nav-helper py-3">
       <b-col sm="auto">
         Buildings / Assembly
       </b-col>
     </b-row>
-    <BuildingList :buildings=assemblers></BuildingList>
+    <BuildingList :buildings="assemblers"></BuildingList>
     <b-row class="nav-helper py-3">
       <b-col sm="auto">
         Buildings / Energy
       </b-col>
     </b-row>
-    <BuildingList :buildings=energy></BuildingList>
+    <BuildingList :buildings="energy"></BuildingList>
   </b-container>
 </template>
 
@@ -28,11 +28,13 @@ import BuildingList from "@/components/BuildingList.vue";
 
 @Component({
   components: {
-    BuildingList,
+    BuildingList
   }
 })
 export default class Buildings extends Vue {
-  @Getter('getBuildingsByType') getBuildingsByType!: (type: string) => Array<object>;
+  @Getter("getBuildingsByType") getBuildingsByType!: (
+    type: string
+  ) => Array<object>;
 
   oreProcessors: Array<object> = [{}];
   assemblers: Array<object> = [{}];
@@ -47,10 +49,9 @@ export default class Buildings extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
 .link-highlight:hover {
-    background: #87c3ff;
-    cursor: pointer;
+  background: #87c3ff;
+  cursor: pointer;
 }
 
 .nav-helper {

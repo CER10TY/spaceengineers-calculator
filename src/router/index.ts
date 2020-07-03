@@ -28,7 +28,7 @@ const routes: Array<RouteConfig> = [
     name: "singleBuilding",
     component: SingleBuilding,
     meta: {
-      breadcrumb: (building: { name: string; }) => building.name
+      breadcrumb: (building: { name: string }) => building.name
     }
   }
 ];
