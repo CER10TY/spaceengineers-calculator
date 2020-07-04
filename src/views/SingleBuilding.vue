@@ -2,11 +2,7 @@
   <b-container>
     <b-row>
       <b-col>
-        <img
-          :src="require(`@/assets/${building.icon}`)"
-          width="150px"
-          height="150px"
-        />
+        <img :src="getBuildIcon(building.icon)" width="150px" height="150px" />
         <h1>{{ building.name }}</h1>
         <p>{{ building.description }}</p>
       </b-col>
@@ -81,14 +77,24 @@
         </b-table-simple>
       </b-col>
     </b-row>
+    <b-row v-if="building.type === 'ore-processing'">
+      <b-col>
+        <RefineRates :building="building.id"></RefineRates>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { Getter } from "vuex-class";
+import RefineRates from "@/components/RefineRates.vue";
 
-@Component({})
+@Component({
+  components: {
+    RefineRates
+  }
+})
 export default class SingleBuilding extends Vue {
   @Getter("getBuildingById") getBuildingById!: (id: string) => object;
 
@@ -97,6 +103,10 @@ export default class SingleBuilding extends Vue {
   mounted(): void {
     const id = this.$route.params.id;
     this.building = this.getBuildingById(id);
+  }
+
+  getBuildIcon(icon: string) {
+    return icon && require(`@/assets/${icon}`);
   }
 }
 </script>

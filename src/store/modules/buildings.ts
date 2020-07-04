@@ -2,7 +2,7 @@ import { Module, VuexModule } from "vuex-module-decorators";
 
 @Module
 export default class Buildings extends VuexModule {
-  buildings = [
+  buildings: Array<Record<string, any>> = [
     {
       id: "bRefinery",
       name: "Basic Refinery",
