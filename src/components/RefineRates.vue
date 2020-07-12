@@ -15,7 +15,7 @@
             placeholder="Amount of ore"
             min="0"
           />
-          <span>(in kg)</span></b-td
+          <span> (in kg)</span></b-td
         >
       </b-tr>
       <b-tr>
@@ -56,7 +56,6 @@ import { Material, OutputInfo } from "@/interfaces/refines.ts";
 
 @Component({})
 export default class RefineRates extends Vue {
-  
   @Getter("getRefineRateForBuilding") getRefineRateForBuilding!: (
     building: string
   ) => Material;
@@ -72,7 +71,7 @@ export default class RefineRates extends Vue {
     this.oreInput = input >= 0 ? input : 0;
   }
 
-  private refineRates(): Record<string, object> {
+  private refineRates(): Record<string, OutputInfo> {
     // We get raw refine rates from store
     this.refineRatesRaw = this.getRefineRateForBuilding(this.building);
     const refineRates: Record<string, OutputInfo> = {};

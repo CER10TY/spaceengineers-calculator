@@ -20,10 +20,11 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { Building } from "@/interfaces/building.ts";
 
 @Component({})
 export default class BuildingList extends Vue {
-  @Prop() readonly buildings!: Array<object>;
+  @Prop() readonly buildings!: Building[];
 
   getBuildIcon(icon: string) {
     return icon && require(`@/assets/${icon}`);

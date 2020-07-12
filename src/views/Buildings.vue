@@ -24,6 +24,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { Getter } from "vuex-class";
+import { Building } from "@/interfaces/building.ts";
 import BuildingList from "@/components/BuildingList.vue";
 
 @Component({
@@ -34,11 +35,11 @@ import BuildingList from "@/components/BuildingList.vue";
 export default class Buildings extends Vue {
   @Getter("getBuildingsByType") getBuildingsByType!: (
     type: string
-  ) => Array<object>;
+  ) => Building[];
 
-  oreProcessors: Array<object> = [{}];
-  assemblers: Array<object> = [{}];
-  energy: Array<object> = [{}];
+  oreProcessors: Building[] = [];
+  assemblers: Building[] = [];
+  energy: Building[] = [];
 
   mounted(): void {
     this.oreProcessors = this.getBuildingsByType("ore-processing");

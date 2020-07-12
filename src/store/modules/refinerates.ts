@@ -3,7 +3,6 @@ import { Refines, Material } from "@/interfaces/refines.ts";
 
 @Module
 export default class RefineRates extends VuexModule {
-
   refineRates: Refines = {
     bRefinery: {
       Cobalt: {

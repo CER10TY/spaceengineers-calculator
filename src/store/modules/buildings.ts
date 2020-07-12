@@ -1,8 +1,9 @@
 import { Module, VuexModule } from "vuex-module-decorators";
+import { Building } from "@/interfaces/building.ts";
 
 @Module
 export default class Buildings extends VuexModule {
-  buildings: Array<Record<string, string | number[] | true | object>> = [
+  buildings: Building[] = [
     {
       id: "bRefinery",
       name: "Basic Refinery",
@@ -135,12 +136,12 @@ export default class Buildings extends VuexModule {
     }
   ];
   get getBuildingById() {
-    return (id: string) => {
+    return (id: string): Building | undefined => {
       return this.buildings.find(building => building.id === id);
     };
   }
   get getBuildingsByType() {
-    return (type: string) => {
+    return (type: string): Building[] => {
       return this.buildings.filter(building => building.type === type);
     };
   }

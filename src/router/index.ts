@@ -6,7 +6,7 @@ import SingleBuilding from "../views/SingleBuilding.vue";
 
 Vue.use(VueRouter);
 
-const routes: Array<RouteConfig> = [
+const routes: RouteConfig[] = [
   {
     path: "/",
     name: "home",

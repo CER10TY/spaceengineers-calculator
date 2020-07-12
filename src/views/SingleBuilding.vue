@@ -88,6 +88,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { Getter } from "vuex-class";
+import { Building } from "@/interfaces/building.ts";
 import RefineRates from "@/components/RefineRates.vue";
 
 @Component({
@@ -96,9 +97,9 @@ import RefineRates from "@/components/RefineRates.vue";
   }
 })
 export default class SingleBuilding extends Vue {
-  @Getter("getBuildingById") getBuildingById!: (id: string) => object;
+  @Getter("getBuildingById") getBuildingById!: (id: string) => Building;
 
-  building: object = {};
+  building: Building = { id: "" };
 
   mounted(): void {
     const id = this.$route.params.id;
